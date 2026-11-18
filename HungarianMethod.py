@@ -16,7 +16,7 @@ def hungarian(matrix):
                                           np.where(crosses == 2, transformed_matrix + A, transformed_matrix))
             # print(A)
             # print(transformed_matrix)
-            # print(solution)
+    print(solution)
 
     return np.sum(matrix[*zip(*solution)])
 
@@ -78,17 +78,11 @@ def find_possible_matching(graph, graph_reverse, used_enters, used_exits):
         state = "enter" if len(element[1]) % 2 == 1 else "exit"
         if state == "enter":
             add_possible_moves(stack, graph[element[0]], current_matching, state)
-            # for i in graph[element[0]]:
-            #     if check_cycle(i, current_matching, state):
-            #         stack.append((i, current_matching))
         else:
             if element[0] in not_used_exits:
                 result_matching = tuple(current_matching)
             else:
                 add_possible_moves(stack, graph_reverse[element[0]], current_matching, state)
-                # for i in graph_reverse[element[0]]:
-                #     if check_cycle(i, current_matching, state):
-                #         stack.append((i, current_matching))
 
     return result_matching
 
@@ -113,7 +107,7 @@ def cross_significant_zeros(matrix, solution):
     marked_rows, marked_cols = mark_zeros(matrix, solution)
     crosses = np.ones(matrix.shape)
     crosses[marked_rows] -= 1
-    crosses.T[marked_cols] += 1
+    crosses[:, marked_cols] += 1
     return crosses
 
 

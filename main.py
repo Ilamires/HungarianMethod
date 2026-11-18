@@ -7,7 +7,7 @@ if __name__ == '__main__':
     min_value = 1
     max_value = 100
     # test_matrix = np.random.randint(min_value, max_value + 1, (n, n))
-    test_matrix = np.array([
+    test_matrix1 = np.array([
         [3, 1, 5, 6, 4, 7],
         [2, 4, 1, 7, 5, 6],
         [6, 5, 3, 1, 7, 4],
@@ -15,6 +15,16 @@ if __name__ == '__main__':
         [4, 6, 7, 3, 2, 5],
         [7, 3, 6, 5, 4, 2],
     ])
-    print(test_matrix)
+    test_matrix2 = np.array([
+        [10, 1, 20, 20, 20, 20, 20, 20],
+        [20, 10, 1, 20, 20, 20, 20, 20],
+        [20, 20, 10, 1, 20, 20, 20, 20],
+        [20, 20, 20, 10, 1, 20, 20, 20],
+        [20, 20, 20, 20, 10, 1, 20, 20],
+        [20, 20, 20, 20, 20, 10, 1, 20],
+        [20, 20, 20, 20, 20, 20, 10, 1],
+        [100, 1, 20, 20, 20, 20, 20, 10]
+    ])
+    print(test_matrix1)
     print()
-    print(hungarian(test_matrix))
+    print(hungarian(test_matrix2))
